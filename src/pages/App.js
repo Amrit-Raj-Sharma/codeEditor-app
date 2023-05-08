@@ -1,6 +1,15 @@
 import Editor from '../components/Editor'
 import { useEffect, useState } from 'react'
 import useLocalStorage from '../components/hooks/useLocalStorage'
+import Header from '../components/Header/header'
+// import ResizePanel from "react-resize-panel";
+
+// import dynamic from 'next/dynamic'
+
+// const ResizePanel = dynamic(
+//   () => import('react-resize-panel'),
+//   { ssr: false }
+// )
 
 export default function App() {
 
@@ -8,6 +17,10 @@ export default function App() {
   const [css, setCss] = useLocalStorage('css',' body{background:green};')
   const [js, setJs] = useLocalStorage('js','// I will help you!')
   const [srcDoc, setSrcDoc] = useState('')
+
+  const [themeValue, setThemeValue] = useState('ayu-dark')
+
+  const [theme, setTheme] = useState('theme-light')
 
   useEffect(() => {
     const timeDelay = setTimeout(() => {
@@ -26,26 +39,46 @@ export default function App() {
 
   return (
     <>
+    <Header setThemeValue={setThemeValue} setTheme={setTheme} theme={theme} />
+{/* 
+     <ResizePanel
+        direction="s"
+        className={`${theme ? 'theme-dark' : 'theme-light'}`}
+        // style={{ backgroundColor: "black", height: "10%" }}
+      >     */}
      <div className='pane top-pane'>
       <Editor 
         language='xml'
         displayName='HTML'
         value={html}
-        onChange={setHtml} 
+        onChange={setHtml}
+        
+        themeValue={themeValue}
+
+        theme={theme}
       />
       <Editor 
         language='css'
         displayName='CSS'
         value={css}
-        onChange={setCss} 
+        onChange={setCss}
+        
+        themeValue={themeValue}
+
+        theme={theme}
       />
       <Editor 
         language='javascript'
         displayName='JS'
         value={js}
-        onChange={setJs} 
+        onChange={setJs}
+        
+        themeValue={themeValue}
+
+        theme={theme}
       />
      </div>
+     {/* </ResizePanel> */}
      <div className='pane'>
       <iframe
         srcDoc={srcDoc} 
@@ -54,6 +87,7 @@ export default function App() {
         frameBorder='0'
         width='100%'
         height='100%'
+        className="responsive-iframe"
         />
      </div>
     </>
