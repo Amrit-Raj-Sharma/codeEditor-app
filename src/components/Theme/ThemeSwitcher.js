@@ -54,13 +54,11 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 const ThemeSwitcher = ({ setTheme, theme }) => {
   return (
-    <FormGroup>
     <FormControlLabel
       control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
     //   label={`${theme ? "" :"Light Mode"}"Dark Mode"`}
       onChange={(e) => setTheme(e?.target?.checked)}
     />
-  </FormGroup>
   )
 }
 
