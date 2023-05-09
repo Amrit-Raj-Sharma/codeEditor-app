@@ -2,6 +2,8 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+
+    background-color: #000;
 }
 
 .pane_top-pane{
@@ -79,19 +81,28 @@ body{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
 }
 
+/* #6b87e2  */
+
+#sel-1:hover{
+    background: #6b87e2 !important;
+    box-shadow: 0 0 5px #6b87e2, 0 0 25px #6b87e2, 0 0 50px #6b87e2, 0 0 200px #6b87e2 !important;
+}
+
 .theme-dark{
     background-color: #1a202c !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
     color: white !important;
 }
 
 .theme-light{
-    background-color: white !important;
+    background-color: #eee !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
     color: black !important;
 }
 
-.theme-dark-outline{
+/* .theme-dark-outline{
     
-}
+} */
 
 .responsive-iframe {
     position: relative;
@@ -129,3 +140,211 @@ body{
     display: flex;
     align-items: center;
   } */
+
+  @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+  /* Navbar */
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: relative;
+    z-index: 15;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+    font-family: 'Bruno Ace SC', cursive !important;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+  
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+  }
+  
+  .nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+  
+  @media (max-width:600px) {
+    .nav{
+        width: 106%;
+    }
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #1a202c;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+
+      z-index: 15;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+      z-index: 15;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+
+
+    .nav > .nav-links-light{
+         background-color: #eee !important;
+    } 
+  }
+
+  .nav > .nav-links > select {
+    outline: none;
+    height: 2rem;
+    padding-left: .5rem;
+    margin-right: .5rem;
+    cursor: pointer;
+  }
+
+  .nav-title-light{
+    color: #1a202c !important;
+  }
+
+  /* Loder */
+
+  .main-loader h3{
+    color: #fff;
+    font-family: 'Bruno Ace SC', cursive !important;
+    text-align: center;
+  }
+  .main-loader svg {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 150px;
+	width: 150px;
+}
+
+
+/* Loader Text */
+.loader{
+	/* background-color: #1a202c; */
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	width:100vw;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+
+    margin-top: 6rem !important;
+}
+
+.loader>span{
+	font-size: 60px;
+	font-family: "franklin gothic medium",sans-serif;
+	display: inline-block;
+	animation:flip 2.6s infinite linear;
+	transform-origin:0 70%;
+	transform-style:preserve-3d;
+	-webkit-transform-style:preserve-3d;
+}
+
+@keyframes flip{
+	35%{
+		transform: rotateX(360deg);
+	}
+	100%{
+		transform: rotatex(360deg);
+	}
+}
+
+
+.loader>span{
+	color:white;
+
+}
+
+.loader>span:nth-child(2){
+	animation-delay: 0.3s;
+}
+
+.loader>span:nth-child(3){
+	animation-delay: 0.6s;
+}
+
+.loader>span:nth-child(4){
+	animation-delay: 0.9s;
+}
+
+.loader>span:nth-child(5){
+	animation-delay: 1.2s;
+}
+
+.loader>span:nth-child(6){
+	animation-delay: 1.5s
+}
+
+.loader>span:nth-child(7){
+	animation-delay: 1.8s
+}  
+
+.loader>span:nth-child(8){
+	animation-delay: 2.1s
+}
+
+.loader>span:nth-child(9){
+	animation-delay: 2.4s
+}
+
+.loader>span:nth-child(10){
+	animation-delay: 2.7s
+}  
